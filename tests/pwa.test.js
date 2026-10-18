@@ -10,7 +10,7 @@ async function worker(){
   const listeners={},store=new Map(),deleted=[];let claimed=false,activated=false;
   const scope='https://example.test/atelier/';
   const cache={async addAll(urls){for(const url of urls)store.set(url,new Response('cached:'+url))},async match(req){return store.get(typeof req==='string'?req:req.url)?.clone()}};
-  const caches={async open(){return cache},async keys(){return ['atelier-shell-0.8.0','other-app-cache','atelier-shell-0.9.0-r1']},async delete(key){deleted.push(key)}};
+  const caches={async open(){return cache},async keys(){return ['atelier-shell-0.8.0','other-app-cache','atelier-shell-0.10.0-r2']},async delete(key){deleted.push(key)}};
   const self={registration:{scope},location:{origin:new URL(scope).origin},clients:{async claim(){claimed=true}},skipWaiting(){activated=true},addEventListener(type,callback){listeners[type]=callback}};
   vm.runInNewContext(await readFile(new URL('../sw.js',import.meta.url),'utf8'),{self,caches,URL,fetch:async()=>{throw Error('Network offline')}});
   let installation;listeners.install({waitUntil(p){installation=p}});await installation;
