@@ -1,6 +1,6 @@
 {
   "name": "atelier-design-studio",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "private": true,
   "license": "MIT",
   "type": "module",
@@ -10,8 +10,8 @@
     "dev": "node scripts/serve.mjs",
     "cloud": "node scripts/cloud.mjs",
     "test": "node --test tests/*.test.js",
-    "build": "node scripts/build.mjs",
-    "check": "node --check src/app.js && node --check src/model.js && node --check src/render.js && node --check src/storage.js && node --check src/cloud.js && node --check server/app.js && node --check server/store.js && node --check src/image-tools.js && node --check src/image-editor.js && node --check src/publishing.js && node --check src/design.js && node --check src/font-assets.js && node --check src/accounts-ui.js && node --check server/accounts.js && node --check server/google.js && node --check server/mail.js && node --check server/config.js && node --check scripts/cloud.mjs && node --check scripts/auth-check.mjs && node --check scripts/mail-verify.mjs && node --check src/editor-tools.js && node --check src/commands.js && node --check src/starter-kits.js && node --check src/pwa.js && node --check sw.js",
+    "build": "node scripts/vendor.mjs && node scripts/build.mjs",
+    "check": "node --check src/app.js && node --check src/model.js && node --check src/render.js && node --check src/storage.js && node --check src/cloud.js && node --check server/app.js && node --check server/store.js && node --check src/image-tools.js && node --check src/image-editor.js && node --check src/publishing.js && node --check src/design.js && node --check src/font-assets.js && node --check src/accounts-ui.js && node --check server/accounts.js && node --check server/google.js && node --check server/mail.js && node --check server/config.js && node --check scripts/cloud.mjs && node --check scripts/auth-check.mjs && node --check scripts/mail-verify.mjs && node --check src/editor-tools.js && node --check src/commands.js && node --check src/starter-kits.js && node --check src/pwa.js && node --check sw.js && node --check src/vault-crypto.js && node --check src/private-storage.js && node --check src/managed-account.js && node --check src/managed-ui.js && node --check src/managed-config.js",
     "auth:check": "node scripts/auth-check.mjs",
     "mail:verify": "node scripts/mail-verify.mjs"
   },
@@ -19,6 +19,11 @@
     "node": ">=20.12"
   },
   "dependencies": {
+    "appwrite": "29.0.0",
+    "esbuild": "0.28.2",
     "nodemailer": "10.1.3"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "6.2.6"
   }
 }

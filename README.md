@@ -3,7 +3,7 @@
 <p align="center">
 <a href="https://github.com/m4z8p6fy9m-coder/atelier-design-studio/actions/workflows/pages.yml"><img src="https://github.com/m4z8p6fy9m-coder/atelier-design-studio/actions/workflows/pages.yml/badge.svg" alt="Tests and build"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-bcecc5?style=flat-square" alt="MIT license"></a>
-<img src="https://img.shields.io/badge/version-0.9.0-c5afff?style=flat-square" alt="Version 0.9.0">
+<img src="https://img.shields.io/badge/version-0.10.0-c5afff?style=flat-square" alt="Version 0.10.0">
 <img src="https://img.shields.io/badge/browser-native_JavaScript-c5afff?style=flat-square" alt="Native JavaScript">
 </p>
 
@@ -21,7 +21,11 @@ Your first design should start with an idea. Atelier gives you an independent ed
 
 This is an early-stage, independent project under the MIT license. It is **not a complete Canva replacement** and is not affiliated with Canva or Adobe. The application code and bundled templates were created for this project. See the [feature inventory](docs/FEATURES.md) and [scope comparison](docs/AUDIT-CANVA.md) for current limitations.
 
-## New in 0.9
+## New in 0.10: private account vaults
+
+Optional real email signup, verification codes and account-password recovery through Appwrite. A separate vault password encrypts projects, uploads, settings and versions before local storage and online backup. Guest projects stay separate. Download and restore encrypted portable backups; inspect immutable online snapshots. [Privacy, recovery and limitations](docs/PRIVATE-VAULTS.md) · [Configure your own backend](docs/APPWRITE-SETUP.md). This is an early implementation, not an independent security audit.
+
+## From 0.9
 
 **20 editable templates. An installable studio. An offline application shell.** Create with twelve new layouts for social posts, events, business and learning. Install Atelier from a supported browser after its first complete online load. Account features still require a connection. [Installation and offline details](docs/OFFLINE.md).
 
@@ -66,7 +70,7 @@ The current application interface and detailed guides are in German. Desktop bro
 
 Local autosave, project import/export, manual versions, folders, favorites and a recoverable trash help organize your work. Export important projects as Atelier files for backups.
 
-**Optional accounts and shared projects:** the included Node server adds email verification codes, password recovery, Google sign-in, project roles and invitations. Email delivery and Google sign-in require your own provider configuration. Hosting and providers may have costs. Start with the [server guide](docs/SERVER.md) and [account guide](docs/ACCOUNTS.md).
+**Legacy optional accounts and shared projects:** with managed mode disabled, the included Node server adds email verification codes, password recovery, Google sign-in, project roles and invitations. Email delivery and Google sign-in require your own provider configuration. Hosting and providers may have costs. Start with the [server guide](docs/SERVER.md) and [account guide](docs/ACCOUNTS.md).
 
 ## Know the boundaries
 

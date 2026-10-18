@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.10.0 — Private account vaults
+
+- Optional Appwrite email signup, verification OTP and account-password recovery.
+- Separate client-side encrypted vaults for projects, uploads, settings and versions; isolated guest workspace.
+- Automatic encrypted online snapshots, conflict detection, portable backups, restore and offline unlock.
+- Explicit recovery/privacy limitations and third-party SDK license notices.
+- 110 automated tests. See docs/RELEASE-CHECKS-0.10.md for real-provider checks and pending validation.
+
 ## 0.9.0 · 18. Oktober 2026
 
 - 20 eigene editierbare Vorlagen, darunter zwölf neue Designs für Social Media, Poster, Business und Lernen.

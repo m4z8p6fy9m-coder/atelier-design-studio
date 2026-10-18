@@ -14,3 +14,7 @@ Include the affected version, impact, reproduction steps and a minimal example t
 - Use HTTPS and persistent storage for an internet-facing account server. Follow [server setup](docs/SERVER.md) and [account setup](docs/ACCOUNTS.md).
 - Export backups before clearing browser storage. The static editor stores projects in the current browser and origin.
 - Do not upload private designs or session data with a bug report.
+
+## Private vaults in 0.10
+
+The optional managed Appwrite mode encrypts private workspace records in the browser before local storage and backup. The guest workspace and optional legacy Node collaboration server do not share this guarantee. See [PRIVATE-VAULTS.md](docs/PRIVATE-VAULTS.md) for key handling, recovery limits, exposed metadata, multi-tab behavior and malicious-host/script threats. No independent security audit has been performed.
