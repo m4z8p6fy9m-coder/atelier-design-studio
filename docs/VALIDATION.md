@@ -66,3 +66,13 @@ Die Tests sind im Repository enthalten. Der Workflow wurde vorbereitet, aber noc
 - UI geprüft: Suche per Lupe und Strg+K aus einem Eingabefeld, Text per Enter hinzufügen, Werkzeug mit Pfeiltaste auswählen und öffnen, Bild hochladen, anderes Bild auswählen und unveränderte X/Y/Breite/Höhe bestätigen, Bild über die ganze Seite anordnen und beide Bildaktionen rückgängig machen. Keine Konsolenfehler. Das Zeigerziehen für Snapping wurde in dieser Browserumgebung nicht automatisiert bedient; die Geometrie ist durch die Node-Tests geprüft.
 - Syntaxprüfung und statischer Build erfolgreich. Screenshot: `docs/commands-0.7.png`.
 - Der Mailversand wurde in dieser Erweiterung nicht erneut eingerichtet. Vorhandene echte Anbieterzugangsdaten und ein erfolgreicher Live-Verbindungstest bleiben Voraussetzung für echte Code-Mails. Es wurden keine Code-Mails simuliert als echte Zustellung ausgegeben.
+
+
+## Erweiterung 0.8: Starter-Kits und Studio-Startseite
+
+- 96 Node-Testfälle erfolgreich; neue Prüfungen verifizieren Import/Export aller zwölf Kit-Seiten sowie unabhängige Dokument-, Seiten- und Element-IDs.
+- 17 Browserprüfungen bestanden, einschließlich PNG, ZIP, WebM, PPTX und IndexedDB.
+- Manueller Browsertest: neue Startseite, Creator Carousel mit vier Seiten öffnen, Wechsel auf Seite vier, Textdarstellung und Miniaturen kontrolliert.
+- Syntaxprüfung und statischer Build erfolgreich.
+- Screenshots unter docs/studio-0.8.png und docs/carousel-0.8.png stammen aus der laufenden Anwendung.
+- Die GitHub-Actions-Prüfung der vorherigen Version war erfolgreich. Für 0.8 wird der Status im Repository separat angezeigt.
