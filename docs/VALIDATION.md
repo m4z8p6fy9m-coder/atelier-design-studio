@@ -85,3 +85,11 @@ Die Tests sind im Repository enthalten. Der Workflow wurde vorbereitet, aber noc
 - Registrierung, Offline-Bereitschaft und Installationshilfe in der eingebetteten Vorschau geprüft. Der vollständige Neustart bei abgeschaltetem Server wurde dort nicht bestätigt; native Installation und Offline-Neustart sind im normalen Zielbrowser zusätzlich zu prüfen.
 
 - Alle 17 Browserprüfungen auch mit der erweiterten Bibliothek von 20 Vorlagen bestanden.
+
+
+## Öffentliche Live-Demo
+
+- GitHub Pages ist aktiviert: https://m4z8p6fy9m-coder.github.io/atelier-design-studio/
+- Erfolgreicher Deployment-Workflow; Startseite, Status „Offline bereit“, Öffnen von Study Notes mit vier Seiten, Seitenwechsel und PNG-Download in der öffentlichen HTTPS-Version geprüft.
+- Repository und Releases sind öffentlich. Eigenes Social-Preview-Bild in den GitHub-Einstellungen hinterlegt.
+- Vollständiger Offline-Neustart und native Installation bleiben separate Zielbrowser-Prüfungen.
