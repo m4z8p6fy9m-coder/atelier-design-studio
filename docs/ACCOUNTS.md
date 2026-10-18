@@ -1,3 +1,5 @@
+> Managed accounts in 0.10: the default client uses Appwrite and separate encrypted vaults. This document describes the optional legacy Node server (`managedConfig.enabled=false`), whose shared projects are not end-to-end encrypted. See [private vaults](PRIVATE-VAULTS.md).
+
 # Konten, automatische E-Mail-Codes und Google-Anmeldung
 
 Version 0.6 ergänzt die bestehende Serveranmeldung um bestätigte E-Mail-Adressen, Passwort-Wiederherstellung und Google OpenID Connect. Der Editor funktioniert weiterhin lokal ohne Konto. Kontofunktionen benötigen den Node-Server; GitHub Pages allein führt sie nicht aus.

@@ -28,3 +28,7 @@ Browserdaten löschen oder Speicherbereinigung kann sowohl Projekte als auch Off
 Unter `npm start` steht http://127.0.0.1:4173/tests/pwa.html für lokale Diagnosen bereit. Der dortige Reset entfernt nur Atelier-Programm-Caches und den zugehörigen Service Worker, keine Projekte. Die Diagnose wird nicht mit dem statischen Build veröffentlicht.
 
 Automatisiert geprüft: Offline-Antworten aus dem Programmspeicher, Repository-Unterpfade, Ausschluss privater Routen und explizite Update-Aktivierung. In der eingebetteten Vorschau wurden Registrierung, Bereitschaftsstatus und Installationshilfe geprüft. Ein kompletter Offline-Neustart und die native Installation konnten dort nicht bestätigt werden; diese Abläufe sollten zusätzlich im verwendeten normalen Zielbrowser geprüft werden.
+
+## Private Kontentresore ab 0.10
+
+Ein bereits eingerichteter Tresor lässt sich mit seinem eigenen Tresorpasswort auf demselben Browser offline öffnen. Die verschlüsselte IndexedDB und der lokale Schlüsseldeskriptor müssen vorhanden sein. Gastdaten bleiben getrennt und unverschlüsselt. Kontenanmeldung, E-Mail-Codes, Passwort-Reset und Online-Sicherungen brauchen eine Verbindung. Siehe [Tresor-Anleitung](PRIVATE-VAULTS.md).

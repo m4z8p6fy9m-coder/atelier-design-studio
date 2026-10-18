@@ -1,3 +1,5 @@
+> Managed accounts in 0.10: the default client uses Appwrite and separate encrypted vaults. This document describes the optional legacy Node server (`managedConfig.enabled=false`), whose shared projects are not end-to-end encrypted. See [private vaults](PRIVATE-VAULTS.md).
+
 # Konten, gemeinsame Projekte und eigener Server
 
 Für echte Konten in einer öffentlich gehosteten App: [Hosting, Mailversand und Datenschutz vorbereiten](ACCOUNT-DEPLOYMENT.md). Der aktuelle Server speichert Online-Designs lesbar; eine Verschlüsselung gegenüber dem Hoster ist noch nicht implementiert.

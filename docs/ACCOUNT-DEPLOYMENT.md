@@ -1,3 +1,5 @@
+> Managed accounts in 0.10: the default client uses Appwrite and separate encrypted vaults. This document describes the optional legacy Node server (`managedConfig.enabled=false`), whose shared projects are not end-to-end encrypted. See [private vaults](PRIVATE-VAULTS.md).
+
 # Echte Konten in der öffentlichen Atelier-App
 
 ## Aktueller Stand
