@@ -1,0 +1,33 @@
+name: Bug report
+description: Help us reproduce and fix a problem.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Remove private designs, email addresses and credentials before sharing. For security issues, read SECURITY.md."
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the actual behavior and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Open a design…"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, OS and Atelier version
+      placeholder: "Chrome / Windows 11 / 0.7.0"
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Screenshots or a minimal sample
+      description: Optional. Share only files you have permission to publish.
