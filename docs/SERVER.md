@@ -1,5 +1,7 @@
 # Konten, gemeinsame Projekte und eigener Server
 
+Für echte Konten in einer öffentlich gehosteten App: [Hosting, Mailversand und Datenschutz vorbereiten](ACCOUNT-DEPLOYMENT.md). Der aktuelle Server speichert Online-Designs lesbar; eine Verschlüsselung gegenüber dem Hoster ist noch nicht implementiert.
+
 Atelier besitzt zwei Betriebsarten:
 
 | Modus | Start | Speicherung | GitHub Pages |
