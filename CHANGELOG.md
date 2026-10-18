@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.9.0 · 18. Oktober 2026
+
+- 20 eigene editierbare Vorlagen, darunter zwölf neue Designs für Social Media, Poster, Business und Lernen.
+- Installierbare Web-App mit Manifest, PNG-Symbolen und Installationshilfe.
+- Offline-Programmspeicher mit expliziter Update-Aktivierung und Ausschluss privater API-Routen.
+- Lokale Offline-Diagnose sowie Tests für Unterpfade, private Routen, Updates und Vorlagen.
+- Hinweise zu Browserunterstützung, Projektspeicher und Backups.
+
 ## 0.8.0 · 18. Oktober 2026
 
 - Neu gestaltete Studio-Startseite mit klarer Typografie und zugänglichen Starter-Karten.

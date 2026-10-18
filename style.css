@@ -26,6 +26,9 @@ nav{overflow:auto;padding-top:12px}nav button{margin-bottom:4px;padding:9px 0}na
 
 /* Searchable command palette */
 /* Studio 0.8: curated starter kits and a calmer visual hierarchy. */
+[hidden]{display:none!important}
+.app-status{font-size:10px;color:#4d755b;margin:10px 0 12px;line-height:1.6}
+.home-bottom .install-app{background:#eee8ff;color:#6244bc;border:1px solid #e0d5fa;border-radius:8px;padding:10px 6px;font-weight:600;margin:8px 0}
 .hero{background:#211a33;color:#faf7ff;border:1px solid #352a4e;box-shadow:0 16px 45px #26153810;min-height:340px}
 .hero .eyebrow{color:#c5afff;letter-spacing:2.5px;font-size:10px;font-weight:700}
 .hero h1{color:#faf7ff;font-size:44px;line-height:1.1;letter-spacing:-1.8px;max-width:650px}
