@@ -43,16 +43,19 @@ export function fontStyle(assets = []) {
   return normalizeFontAssets(assets).map(a => `@font-face{font-family:'${fontFamily(a)}';src:url('${a.data}') format('${formats[a.type]}');font-style:normal;font-weight:100 900}`).join('');
 }
 
-const loaded = new Map();
+const loaded = new Map();let fontGeneration=0;
 export async function loadFontAssets(assets = []) {
-  if (!assets.length) return;
+  const generation=fontGeneration;if (!assets.length) return;
   for (const asset of normalizeFontAssets(assets)) {
     const family = fontFamily(asset), previous = loaded.get(family);
     if (previous?.data === asset.data) continue;
     const face = new FontFace(family, `url(${asset.data})`, { weight: '100 900' });
     try { await face.load(); } catch { throw Error(`Die Schrift „${asset.label}“ konnte nicht geladen werden.`); }
+    if(generation!==fontGeneration)throw Error('Arbeitsbereich gewechselt.');
     if (previous) document.fonts.delete(previous.face);
     document.fonts.add(face); loaded.set(family, { data: asset.data, face });
   }
   await document.fonts.ready;
 }
+
+export function clearFontAssets(){fontGeneration++;for(const {face} of loaded.values())document.fonts.delete(face);loaded.clear()}

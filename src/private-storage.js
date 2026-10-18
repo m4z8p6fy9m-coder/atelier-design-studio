@@ -1,0 +1,24 @@
+import {seal,unseal} from './vault-crypto.js';
+const STORES=['projects','assets','settings','versions'];
+let connection,context=null,revision=0,listener=()=>{};
+export const vaultOwner=()=>context?.owner||null;
+export function onVaultChange(fn){listener=fn}
+export function useVault(owner,key){context={owner,key};revision++}
+export function lockVault(){context=null;revision++}
+function database(){return connection??=new Promise((resolve,reject)=>{const r=indexedDB.open('atelier-private-v1',1);r.onupgradeneeded=()=>{r.result.createObjectStore('records',{keyPath:'id'}).createIndex('owner','owner');r.result.createObjectStore('meta',{keyPath:'id'})};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+async function transaction(store,mode,operation){const d=await database();return new Promise((resolve,reject)=>{const t=d.transaction(store,mode),r=operation(t.objectStore(store));let result;r.onsuccess=()=>result=r.result;t.oncomplete=()=>resolve(result);t.onerror=()=>reject(t.error);t.onabort=()=>reject(t.error||Error('Tresor-Schreibvorgang abgebrochen.'))})}
+const capture=()=>{if(!context)throw Error('Tresor ist gesperrt.');return {...context,revision}};
+const check=c=>{if(c.revision!==revision)throw Error('Tresor wurde gewechselt. Bitte erneut öffnen.')};
+const recordId=(owner,store,id)=>JSON.stringify([owner,store,id]);
+const aad=(owner,store,id)=>'atelier-record:'+recordId(owner,store,id);
+export async function privateGet(store,id){const c=capture(),r=await transaction('records','readonly',s=>s.get(recordId(c.owner,store,id)));check(c);const value=r?await unseal(c.key,r.value,aad(c.owner,store,id)):undefined;check(c);return value}
+export async function privateAll(store){const c=capture(),rows=await transaction('records','readonly',s=>s.index('owner').getAll(c.owner)),values=[];for(const r of rows.filter(r=>r.store===store))values.push(await unseal(c.key,r.value,aad(c.owner,store,r.item)));check(c);return values}
+export async function privateWrite(store,value,remove=false){if(!STORES.includes(store))throw Error('Ungültiger Speicherbereich.');const c=capture(),item=remove?value:value.id;if(typeof item!=='string')throw Error('Ungültige Datensatz-ID.');const encrypted=remove?null:await seal(c.key,value,aad(c.owner,store,item));check(c);const d=await database();check(c);await new Promise((resolve,reject)=>{const t=d.transaction(['records','meta'],'readwrite'),records=t.objectStore('records'),meta=t.objectStore('meta'),id=recordId(c.owner,store,item);if(remove)records.delete(id);else records.put({id,owner:c.owner,store,item,value:encrypted});const r=meta.get(c.owner);r.onsuccess=()=>{const m=r.result||{id:c.owner,head:null,generation:0};m.dirty=true;m.generation++;meta.put(m)};t.oncomplete=resolve;t.onerror=()=>reject(t.error);t.onabort=()=>reject(t.error)});check(c);listener();return item}
+export async function vaultMeta(owner){return await transaction('meta','readonly',s=>s.get(owner))||{id:owner,head:null,generation:0,dirty:false}}
+export async function updateVaultMeta(value){return transaction('meta','readwrite',s=>s.put(value))}
+export async function encryptedSnapshot(){const c=capture(),records=await transaction('records','readonly',s=>s.index('owner').getAll(c.owner));check(c);return {format:'atelier-snapshot-1',owner:c.owner,records}}
+export async function restoreSnapshot(snapshot,head){const c=capture();if(snapshot?.format!=='atelier-snapshot-1'||snapshot.owner!==c.owner||!Array.isArray(snapshot.records)||snapshot.records.length>100000)throw Error('Ungültige Kontensicherung.');const seen=new Set();for(const r of snapshot.records){if(r.owner!==c.owner||!STORES.includes(r.store)||typeof r.item!=='string'||r.id!==recordId(c.owner,r.store,r.item)||seen.has(r.id))throw Error('Ungültiger Datensatz in der Sicherung.');seen.add(r.id);const value=await unseal(c.key,r.value,aad(c.owner,r.store,r.item));if(value.id!==r.item)throw Error('Datensatz-ID stimmt nicht überein.')}check(c);const d=await database();check(c);await new Promise((resolve,reject)=>{const t=d.transaction(['records','meta'],'readwrite'),s=t.objectStore('records'),r=s.index('owner').getAllKeys(c.owner);r.onsuccess=()=>{for(const id of r.result)s.delete(id);for(const row of snapshot.records)s.put(row);t.objectStore('meta').put({id:c.owner,head,generation:0,dirty:false})};t.oncomplete=resolve;t.onerror=()=>reject(t.error);t.onabort=()=>reject(t.error)});check(c)}
+
+export async function markVaultSynced(owner,head,generation){const d=await database();return new Promise((resolve,reject)=>{const t=d.transaction('meta','readwrite'),s=t.objectStore('meta'),r=s.get(owner);let result;r.onsuccess=()=>{const m=r.result;if(!m){t.abort();return}result={...m,head,dirty:m.generation!==generation};s.put(result)};t.oncomplete=()=>resolve(result);t.onerror=()=>reject(t.error);t.onabort=()=>reject(t.error||Error('Tresor-Metadaten fehlen.'))})}
+
+export const vaultRevision=()=>revision;
