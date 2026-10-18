@@ -12,7 +12,7 @@ const hash = token => createHash('sha256').update(token).digest('hex');
 const freshToken = () => randomBytes(32).toString('base64url');
 const uuid = /^[a-z0-9-]{1,80}$/i;
 const error = (status, message) => Object.assign(Error(message), { status });
-const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.json': 'application/json' };
+const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.webmanifest': 'application/manifest+json', '.json': 'application/json' };
 
 function cleanDocument(raw, id) {
   let doc;
@@ -241,7 +241,7 @@ export async function createAtelierServer({ directory, publicUrl, allowRegistrat
       const target = path.resolve(sourceRoot, '.' + pathname);
       const relative = path.relative(sourceRoot, target).replaceAll('\\', '/');
       // Serve only explicit public files and front-end modules. Never expose database, tests, server or credentials.
-      if (!['', 'index.html', 'style.css', 'icon.svg'].includes(relative) && !/^src\/[a-z0-9-]+\.js$/.test(relative)) throw error(404, 'Datei nicht gefunden.');
+      if (!['', 'index.html', 'style.css', 'icon.svg', 'icon-192.png', 'icon-512.png', 'icon-maskable.png', 'manifest.webmanifest', 'sw.js'].includes(relative) && !/^src\/[a-z0-9-]+\.js$/.test(relative)) throw error(404, 'Datei nicht gefunden.');
       const file = relative ? target : path.join(sourceRoot, 'index.html');
       if (!(await stat(file)).isFile()) throw error(404, 'Datei nicht gefunden.');
       const content = await readFile(file);
