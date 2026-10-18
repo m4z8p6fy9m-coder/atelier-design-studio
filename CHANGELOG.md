@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.8.0 · 18. Oktober 2026
+
+- Neu gestaltete Studio-Startseite mit klarer Typografie und zugänglichen Starter-Karten.
+- Drei unabhängige Starter-Kits mit jeweils vier editierbaren Seiten: Creator Carousel, Product Story und Study Notes.
+- Starter-Kits auch über Strg/Cmd+K erreichbar; neue Projekte behalten individuelle IDs und lokale Sicherung.
+- Download-Paket mit Schnellstart, Prüfsumme und Community-Dokumentation.
+- Professioneller GitHub-Auftritt mit eigener Marke und ehrlicher Funktionsübersicht.
+
 ## 0.7.0 · 18. Oktober 2026
 
 - Durchsuchbare, kontextabhängige Befehle mit Strg/Cmd+K und Tastaturnavigation.

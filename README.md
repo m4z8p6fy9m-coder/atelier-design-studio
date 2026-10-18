@@ -3,15 +3,17 @@
 <p align="center">
 <a href="https://github.com/m4z8p6fy9m-coder/atelier-design-studio/actions/workflows/pages.yml"><img src="https://github.com/m4z8p6fy9m-coder/atelier-design-studio/actions/workflows/pages.yml/badge.svg" alt="Tests and build"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-bcecc5?style=flat-square" alt="MIT license"></a>
-<img src="https://img.shields.io/badge/version-0.7.0-c5afff?style=flat-square" alt="Version 0.7.0">
+<img src="https://img.shields.io/badge/version-0.8.0-c5afff?style=flat-square" alt="Version 0.8.0">
 <img src="https://img.shields.io/badge/browser-native_JavaScript-c5afff?style=flat-square" alt="Native JavaScript">
 </p>
+
+<p align="center"><a href="https://github.com/m4z8p6fy9m-coder/atelier-design-studio/releases/tag/v0.8.0"><strong>↓ Download Atelier 0.8</strong></a> · <a href="docs/START-HERE.md">Start in two minutes</a></p>
 
 <h1 align="center">A creative space that belongs to you.</h1>
 <p align="center">Create social posts, posters and presentations in your browser.<br>Start without an account. Keep your designs locally. Export without watermarks.</p>
 <p align="center"><a href="#get-started"><strong>Get started</strong></a> · <a href="#inside-the-studio">Explore features</a> · <a href="docs/REFERENCE.de.md">Deutsche Anleitung</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
 
-<p align="center"><img src="docs/editor-0.5.png" alt="Atelier editor with its canvas, tools and element properties; screenshot from version 0.5." width="100%"><br><sub>Editor preview from v0.5. Current release: v0.7.0.</sub></p>
+<p align="center"><img src="docs/carousel-0.8.png" alt="Atelier 0.8 editing the four-page Creator Carousel starter kit." width="100%"><br><sub>Atelier 0.8 · Four-page Creator Carousel, fully editable.</sub></p>
 
 ## Why Atelier?
 
@@ -19,9 +21,17 @@ Your first design should start with an idea. Atelier gives you an independent ed
 
 This is an early-stage, independent project under the MIT license. It is **not a complete Canva replacement** and is not affiliated with Canva or Adobe. The application code and bundled templates were created for this project. See the [feature inventory](docs/FEATURES.md) and [scope comparison](docs/AUDIT-CANVA.md) for current limitations.
 
+## New in 0.8
+
+Three editable, four-page starter kits: **Creator Carousel**, **Product Story** and **Study Notes**. Open a kit from the redesigned studio homepage, make it yours, then export your pages. No account or API key required.
+
+![Atelier 0.8 studio homepage with starter kits](docs/studio-0.8.png)
+
 ## Get started
 
-Install **Node.js 20.12+**, download or clone this repository, and run from its root:
+**Download:** get `Atelier-v0.8.0.zip` from [Releases](https://github.com/m4z8p6fy9m-coder/atelier-design-studio/releases/tag/v0.8.0), extract it and follow [START-HERE.md](docs/START-HERE.md). This is a portable source package, not a standalone installer; **Node.js 20.12+ is required**.
+
+Or clone the repository and run from its root:
 
 ```sh
 git clone https://github.com/m4z8p6fy9m-coder/atelier-design-studio.git

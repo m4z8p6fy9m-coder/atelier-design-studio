@@ -25,6 +25,43 @@ nav{overflow:auto;padding-top:12px}nav button{margin-bottom:4px;padding:9px 0}na
 .cloud-account{flex-wrap:wrap}
 
 /* Searchable command palette */
+/* Studio 0.8: curated starter kits and a calmer visual hierarchy. */
+.hero{background:#211a33;color:#faf7ff;border:1px solid #352a4e;box-shadow:0 16px 45px #26153810;min-height:340px}
+.hero .eyebrow{color:#c5afff;letter-spacing:2.5px;font-size:10px;font-weight:700}
+.hero h1{color:#faf7ff;font-size:44px;line-height:1.1;letter-spacing:-1.8px;max-width:650px}
+.hero h1 em{font-style:normal;color:#c5afff}
+.hero p{color:#cfc7df;line-height:1.8;font-size:13px}
+.hero-cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hero-cta>span{font-size:10px;color:#c4b7d8}
+.hero .hero-button{background:#c5afff;color:#28183e;border:0;font-weight:700;box-shadow:none}
+.hero .hero-button:hover{background:#dbcaff;transform:translateY(-2px)}
+.hero .art-card.one{background:#c5afff;color:#332343;border:1px solid #dccaff;box-shadow:0 20px 35px #0003}
+.hero .art-card.two{background:#d9e8c3;color:#314535;box-shadow:0 20px 35px #0003}
+.home-content{max-width:1700px;margin-inline:auto;width:100%}
+.home-top>span{font-weight:600;letter-spacing:.2px;color:#3d344e}
+.section-kicker{display:block;font-size:9px;letter-spacing:1.8px;color:#806b9f;font-weight:700;margin-bottom:10px}
+.starter-section{margin:34px 0 44px}
+.starter-section .section-head{align-items:center}
+.starter-section .section-head h2{font-size:23px;letter-spacing:-.7px;margin-bottom:10px}
+.starter-section .sub{line-height:1.7;max-width:560px}
+.starter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.starter-card{padding:0;text-align:left;overflow:hidden;border:1px solid #e9e4ef;border-radius:15px;background:#fff;box-shadow:0 3px 12px #2a1e3c04;transition:transform .18s,box-shadow .18s,border-color .18s}
+.starter-card:hover{transform:translateY(-5px);box-shadow:0 15px 35px #30224214;border-color:#c4b3e7}
+.starter-card:focus-visible{outline:3px solid #7554e8;outline-offset:4px}
+.starter-preview{position:relative;background:#f0edf4;padding:20px 40px 0;overflow:hidden}
+.starter-preview svg{display:block;width:100%;height:auto;border-radius:8px 8px 0 0;box-shadow:0 8px 22px #1b122822}
+.starter-count{position:absolute;right:12px;top:12px;background:#fff;color:#564266;padding:6px 9px;border-radius:20px;font-size:8px;font-weight:700;letter-spacing:1px;box-shadow:0 2px 10px #0001}
+.starter-details{padding:21px}
+.starter-details>small{font-size:8px;letter-spacing:1.6px;color:#82718f;font-weight:700}
+.starter-details>strong{display:flex;justify-content:space-between;color:#2e233b;font-size:18px;margin-top:10px;letter-spacing:-.4px}
+.starter-details>strong span{color:#9b83b4;font-size:20px}
+.starter-details p{font-size:11px;line-height:1.8;color:#81758c;min-height:40px;margin:11px 0 18px}
+.starter-link{display:flex;justify-content:space-between;color:#7554e8;font-size:11px;font-weight:700}
+.home-content button:focus-visible{outline:3px solid #7554e8;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.starter-card,.hero .hero-button{transition:none;transform:none!important}}
+@media(max-width:1150px){.hero h1{font-size:34px}.starter-preview{padding:16px 22px 0}.starter-grid{gap:13px}.starter-details{padding:15px}.starter-details>strong{font-size:15px}}
+@media(max-width:900px){.hero-art{display:none}.starter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.starter-card:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}.starter-card:last-child .starter-preview{padding-top:20px}}
+@media(max-width:560px){.hero h1{font-size:30px}.hero{padding:25px;min-height:320px}.hero p br{display:none}.starter-grid{grid-template-columns:1fr}.starter-card,.starter-card:last-child{display:grid;grid-template-columns:115px 1fr;grid-column:auto}.starter-preview,.starter-card:last-child .starter-preview{padding:16px 8px;display:flex;align-items:center}.starter-preview svg{border-radius:5px}.starter-count{top:5px;right:5px;font-size:6px;padding:4px}.starter-details p{font-size:10px;margin:8px 0;min-height:0}.starter-section .section-head h2{font-size:20px}.starter-details{padding:14px}.starter-details>strong{font-size:15px}}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .command-search{font-size:16px!important;padding:14px!important;border:1px solid #b8a9eb!important}
 #commandResults{max-height:360px;overflow:auto;margin-top:14px;display:grid;gap:4px}
