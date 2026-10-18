@@ -1,0 +1,12 @@
+import {esc} from './render.js';
+const normalize=value=>String(value).toLowerCase().replaceAll('ß','ss').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+export function findCommands(commands,query){const words=normalize(query).trim().split(/\s+/).filter(Boolean);return commands.filter(c=>!c.disabled&&words.every(w=>normalize(c.title+' '+(c.keywords||'')).includes(w))).slice(0,14)}
+export function openCommands({modal,commands,run,onError}){
+  let selected=0,matches=[];modal('Was möchtest du machen?',`<label class="sr-only" for="commandSearch">Befehle suchen</label><input id="commandSearch" class="command-search" placeholder="Aktion, Werkzeug oder Seite suchen …" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="commandResults" autocomplete="off"><div id="commandResults" role="listbox" aria-label="Verfügbare Befehle"></div><p class="sub command-hint">↑ ↓ auswählen · Enter ausführen · Escape schließen</p>`);
+  const input=document.querySelector('#commandSearch'),results=document.querySelector('#commandResults');
+  const execute=async command=>{document.querySelector('#modal').close();try{await run(command)}catch(error){onError(error.message)}};
+  function draw(reset=false){matches=findCommands(commands,input.value);if(reset)selected=0;selected=Math.max(0,Math.min(selected,matches.length-1));results.innerHTML=matches.length?matches.map((c,i)=>`<button type="button" id="command-option-${i}" role="option" aria-selected="${i===selected}" data-command-index="${i}"><span>${esc(c.title)}</span>${c.shortcut?`<kbd>${esc(c.shortcut)}</kbd>`:''}</button>`).join(''):'<p class="command-empty">Kein Treffer. Versuche „Text“, „Export“ oder „Seite“.</p>';if(matches.length)input.setAttribute('aria-activedescendant','command-option-'+selected);else input.removeAttribute('aria-activedescendant');}
+  input.oninput=()=>draw(true);input.onkeydown=event=>{if(['ArrowDown','ArrowUp','Enter'].includes(event.key)){event.preventDefault();event.stopPropagation();if(event.key==='Enter'){if(matches[selected])execute(matches[selected]);return}if(matches.length)selected=(selected+(event.key==='ArrowDown'?1:-1)+matches.length)%matches.length;draw();document.querySelector('#command-option-'+selected)?.scrollIntoView({block:'nearest'})}};
+  results.onclick=event=>{const button=event.target.closest('[data-command-index]');if(!button)return;event.preventDefault();event.stopPropagation();execute(matches[Number(button.dataset.commandIndex)])};
+  draw();input.focus({preventScroll:true});
+}
