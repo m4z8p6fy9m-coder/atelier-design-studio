@@ -7,7 +7,7 @@
 <img src="https://img.shields.io/badge/browser-native_JavaScript-c5afff?style=flat-square" alt="Native JavaScript">
 </p>
 
-<p align="center"><a href="https://github.com/m4z8p6fy9m-coder/atelier-design-studio/releases/tag/v0.9.0"><strong>↓ Download Atelier 0.9</strong></a> · <a href="docs/START-HERE.md">Start in two minutes</a></p>
+<p align="center"><a href="https://m4z8p6fy9m-coder.github.io/atelier-design-studio/"><strong>↗ Try Atelier live — no installation</strong></a> · <a href="https://github.com/m4z8p6fy9m-coder/atelier-design-studio/releases/tag/v0.9.0"><strong>↓ Download Atelier 0.9</strong></a> · <a href="docs/START-HERE.md">Start in two minutes</a></p>
 
 <h1 align="center">A creative space that belongs to you.</h1>
 <p align="center">Create social posts, posters and presentations in your browser.<br>Start without an account. Keep your designs locally. Export without watermarks.</p>
@@ -34,6 +34,9 @@ Three editable, four-page starter kits: **Creator Carousel**, **Product Story** 
 ![Atelier 0.9 homepage with offline readiness and starter kits](docs/studio-0.9.png)
 
 ## Get started
+
+**[Open the live studio](https://m4z8p6fy9m-coder.github.io/atelier-design-studio/)** — no account, installation or Node.js required. Your designs stay in this browser. Once the app says Offline bereit, installation guidance is available from the sidebar.
+
 
 **Download:** get `Atelier-v0.9.0.zip` from [Releases](https://github.com/m4z8p6fy9m-coder/atelier-design-studio/releases/tag/v0.9.0), extract it and follow [START-HERE.md](docs/START-HERE.md). This is a portable source package, not a standalone installer; **Node.js 20.12+ is required**.
 
