@@ -19,7 +19,8 @@ test('static preview exposes only public files, never server data or source', as
       child.once('error', e => { clearTimeout(timer); reject(e); });
       child.once('exit', () => { clearTimeout(timer); reject(Error('Static server exited before startup.')); });
     });
-    for (const resource of ['/', '/src/app.js', '/tests/browser.html']) assert.equal((await fetch(origin + resource)).status, 200);
+    for (const resource of ['/', '/src/app.js', '/tests/browser.html', '/sw.js', '/manifest.webmanifest', '/icon-192.png', '/icon-512.png', '/icon-maskable.png']) assert.equal((await fetch(origin + resource)).status, 200);
+    assert.match((await fetch(origin + '/manifest.webmanifest')).headers.get('content-type'), /application\/manifest\+json/);
     for (const resource of ['/server/app.js', '/data/atelier.json', '/package.json', '/scripts/cloud.mjs']) assert.equal((await fetch(origin + resource)).status, 404);
     assert.equal((await fetch(origin + '/.env')).status, 403);
   } finally {
