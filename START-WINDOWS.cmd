@@ -1,0 +1,12 @@
+@echo off
+cd /d "%~dp0"
+where node >nul 2>nul
+if errorlevel 1 (
+  echo Bitte zuerst Node.js 20.12 oder neuer von https://nodejs.org installieren.
+  pause
+  exit /b 1
+)
+echo Atelier startet. Danach http://127.0.0.1:4173/ im Browser oeffnen.
+echo Dieses Fenster offen lassen. Zum Beenden Strg+C druecken.
+node scripts/serve.mjs
+pause
