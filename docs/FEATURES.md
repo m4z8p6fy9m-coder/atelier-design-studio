@@ -7,7 +7,7 @@ Stand: 18. Oktober 2026. Dieser Abgleich ordnet zentrale Funktionsbereiche ein. 
 | Bereich | Atelier 0.7 | Umfang / fehlende Teile |
 | --- | --- | --- |
 | Design-Editor | Vorhanden | Texte, Formen, Bilder, Zeichnen, Gruppen, Ebenen, Positionierung; kein vollwertiger professioneller Vektorpfad-Editor |
-| Vorlagen | Teilweise | Acht Startvorlagen und eigene lokale Vorlagen mit Archiv; kein kommerzieller Vorlagen- oder Stock-Katalog |
+| Vorlagen | Teilweise | 20 Startvorlagen und eigene lokale Vorlagen mit Archiv; kein kommerzieller Vorlagen- oder Stock-Katalog |
 | Bildbearbeitung | Teilweise | Filter, Ausschnitt, Masken, Schatten, lokales farbbasiertes Freistellen und manuelles Radieren; keine KI-Retusche oder automatische Motivauswahl |
 | Markenverwaltung | Teilweise | Ein lokales Profil mit Farben und Schrift; keine umfassenden Teamrichtlinien, Freigabeprozesse oder gemeinsam verwalteten Markenbibliotheken |
 | Diagramme / Tabellen | Teilweise | CSV-Daten, drei Diagrammtypen und einfache Tabellen; kein Spreadsheet-Produkt |
@@ -26,3 +26,8 @@ Stand: 18. Oktober 2026. Dieser Abgleich ordnet zentrale Funktionsbereiche ein. 
 Canva dokumentiert ein deutlich breiteres Produkt, unter anderem KI-Werkzeuge für Designs, Bilder und Videos, eine Videobearbeitung mit Timeline und Audio sowie umfangreiche Markenverwaltung. Die obigen Lücken werden deshalb ausdrücklich benannt und nicht durch wirkungslose Schaltflächen verdeckt. Quellen: [Funktionsübersicht](https://www.canva.com/features/), [Canva AI](https://www.canva.com/help/using-canva-ai/), [Video-Editor](https://www.canva.com/video-editor/), [Markenverwaltung](https://www.canva.com/business/features/brand/).
 
 Für den Betrieb des gelieferten Servers siehe [SERVER.md](SERVER.md). Die durchgeführten Prüfungen stehen in [VALIDATION.md](VALIDATION.md).
+
+
+## Version 0.9
+
+20 eigene editierbare Vorlagen, drei vierseitige Starter-Kits und eine installierbare Web-App mit Offline-Programmspeicher. Installationsvoraussetzungen, Updates und Testgrenzen: [OFFLINE.md](OFFLINE.md).

@@ -76,3 +76,12 @@ Die Tests sind im Repository enthalten. Der Workflow wurde vorbereitet, aber noc
 - Syntaxprüfung und statischer Build erfolgreich.
 - Screenshots unter docs/studio-0.8.png und docs/carousel-0.8.png stammen aus der laufenden Anwendung.
 - Die GitHub-Actions-Prüfung der vorherigen Version war erfolgreich. Für 0.8 wird der Status im Repository separat angezeigt.
+
+
+## Erweiterung 0.9: Offline-App und 20 Vorlagen
+
+- 100 Node-Testfälle bestanden; neue Prüfungen decken Offline-Dateien unter einem Repository-Unterpfad, private Routen, explizite Aktivierung und 20 importierbare Vorlagen ab.
+- Syntaxprüfung und statisches Build erfolgreich.
+- Registrierung, Offline-Bereitschaft und Installationshilfe in der eingebetteten Vorschau geprüft. Der vollständige Neustart bei abgeschaltetem Server wurde dort nicht bestätigt; native Installation und Offline-Neustart sind im normalen Zielbrowser zusätzlich zu prüfen.
+
+- Alle 17 Browserprüfungen auch mit der erweiterten Bibliothek von 20 Vorlagen bestanden.

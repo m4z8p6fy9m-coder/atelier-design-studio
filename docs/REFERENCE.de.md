@@ -41,7 +41,7 @@ Zum Ausprobieren enthält `examples/creator-studio.atelier.json` ein Design mit 
 | Projekte | Übersicht, Suche, Favoriten, Ordner, Umbenennen, Duplizieren, Papierkorb und Wiederherstellen |
 | Editor | Drag-and-drop, Mehrfachauswahl, Gruppierung, Kopieren/Einfügen, Skalieren, Drehen, Spiegeln, Ausrichten, Verteilen, Einrasten an Seiten-/Elementkanten und Mittelpunkten |
 | Texte | Sieben Systemschriften, eigene TTF/OTF/WOFF/WOFF2-Dateien, Textbiegung, Größe, Stärke, Kursiv, Unterstreichen, Zeilen- und Zeichenabstand, automatischer Wortumbruch |
-| Gestaltung | Acht Startvorlagen, eigene Vorlagenbibliothek mit Archiv, Farbverläufe, Formen, Symbole, Farben, Konturen, Schatten, Transparenz, Ebenen sperren/ausblenden |
+| Gestaltung | 20 Startvorlagen, eigene Vorlagenbibliothek mit Archiv, Farbverläufe, Formen, Symbole, Farben, Konturen, Schatten, Transparenz, Ebenen sperren/ausblenden |
 | Bilder | Austausch bei gleichem Rahmen, als Hintergrund anordnen, eigene PNG/JPG/WebP/GIF-Dateien, Bildausschnitt und Zoom, Rechteck-/Ellipsenmaske, Helligkeit, Kontrast, Sättigung, Unschärfe, Schwarzweiß |
 | Freistellen | Hintergrundfarbe zusammenhängend entfernen, manuell radieren/wiederherstellen, acht Bearbeitungsschritte rückgängig; keine KI-Segmentierung |
 | Zeichnen | Freihandlinien als bearbeitbare Vektorelemente, Farbe und Strichstärke |
