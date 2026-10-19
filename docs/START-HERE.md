@@ -1,11 +1,11 @@
-# Atelier 0.9 — in zwei Minuten starten
+# Atelier 0.10.4 — in zwei Minuten starten
 
 Atelier ist ein Design-Editor für aktuelle Desktopbrowser. Das ZIP enthält den Quellcode und Startdateien. Es ist kein eigenständiges Installationsprogramm und benötigt **Node.js ab Version 20.12**.
 
 ## Windows
 
 1. Node.js von [nodejs.org](https://nodejs.org/) installieren, falls noch nicht vorhanden.
-2. `Atelier-v0.9.0.zip` vollständig in einen eigenen Ordner entpacken. Nicht direkt aus der ZIP starten.
+2. `Atelier-v0.10.4.zip` vollständig in einen eigenen Ordner entpacken. Nicht direkt aus der ZIP starten.
 3. Im entpackten Ordner `START-WINDOWS.cmd` doppelklicken. Das Terminalfenster geöffnet lassen.
 4. Im Browser **http://127.0.0.1:4173** öffnen.
 5. Unter **Ein starker Anfang. Vier fertige Seiten.** ein Starter-Kit öffnen. Texte bearbeiten und oben rechts **Exportieren** wählen.
@@ -41,3 +41,7 @@ Fehler gefunden? Lies [CONTRIBUTING.md](../CONTRIBUTING.md) und beschreibe Betri
 ## Als App installieren
 
 Nach dem ersten vollständigen Laden zeigt die Übersicht **Offline bereit**. Mit **Atelier installieren** kannst du den unterstützten Browserdialog öffnen oder Installationshinweise anzeigen. Details und Grenzen: [OFFLINE.md](OFFLINE.md). Die Installation aus einer späteren Live-Demo benötigt keinen lokalen Node-Server.
+
+## Gastmodus und private Tresore
+
+Demo und unveränderter Download laufen ausschließlich lokal im Gastmodus. Konten sind deaktiviert. Gastdaten sind nicht als privater Tresor verschlüsselt; Projektdateien regelmäßig exportieren. Für eigene private Tresore: [Selbsthosting-Anleitung](SELF-HOSTING-VAULTS.md).

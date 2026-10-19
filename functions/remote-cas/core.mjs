@@ -1,0 +1,9 @@
+import {createHash} from 'node:crypto';
+const idFor=(owner,op)=>'c'+createHash('sha256').update(JSON.stringify([owner,op])).digest('hex').slice(0,31);
+const conflict=()=>Object.assign(Error('CAS-Konflikt'),{code:409});
+export async function commitHead(db,owner,input){if(!Number.isSafeInteger(input.expectedVersion)||input.expectedVersion<0||input.expectedVersion>=2147483646||typeof input.operation!=='string'||!/^[a-zA-Z0-9_.-]{1,36}$/.test(input.operation)||!/^[a-zA-Z0-9_.-]{1,36}$/.test(input.fileId)||!/^[a-f0-9]{64}$/.test(input.hash)||!(input.expectedHead===null||typeof input.expectedHead==='string'&&/^[a-zA-Z0-9_.-]{1,36}$/.test(input.expectedHead)))throw Object.assign(Error('Ungültiger CAS-Auftrag'),{code:400});
+ const headId=idFor(owner,'head'),receiptId=idFor(owner,input.operation),existing=await db.get('commits',receiptId);
+ const matches=r=>r.owner===owner&&r.operation===input.operation&&r.fileId===input.fileId&&r.hash===input.hash&&r.previousHead===(input.expectedHead||'')&&r.version===input.expectedVersion+1;
+ if(existing){if(!matches(existing))throw conflict();return existing}
+ const transaction=await db.begin();try{const head=await db.get('heads',headId);if((head?.version||0)!==input.expectedVersion||(head?.fileId||null)!==input.expectedHead)throw conflict();const next={owner,version:input.expectedVersion+1,fileId:input.fileId,hash:input.hash,operation:input.operation},receipt={...next,previousHead:input.expectedHead||''};await db.create('commits',receiptId,receipt,transaction);if(head)await db.update('heads',headId,next,transaction);else await db.create('heads',headId,next,transaction);await db.commit(transaction);return receipt}catch(error){await db.rollback(transaction).catch(()=>{});if(error.code===409){const retry=await db.get('commits',receiptId);if(retry&&matches(retry))return retry}throw error}}
+export const ownerHeadId=owner=>idFor(owner,'head');

@@ -1,10 +1,14 @@
+> **0.10.4: Demo = Gastmodus, private Tresore = Selbsthosting.** Die folgenden älteren Beschreibungen gelten nicht als Kontoangebot der öffentlichen Demo. Aktivierung, eigene Projektwerte, CSP und Grenzen: [SELF-HOSTING-VAULTS.md](SELF-HOSTING-VAULTS.md).
+
+> Local 0.10.1 candidate: read [HARDENING-0.10.1.md](HARDENING-0.10.1.md). New snapshot graph and retention behavior have automated provider-double coverage, not a new live-provider end-to-end validation. Do not deploy this candidate as if those checks were completed.
+
 # Appwrite Cloud setup
 
 The current integration uses the official Appwrite Web SDK 29.0.0, bundled locally. Email signup, verification OTP, password recovery OTP and private encrypted vaults are implemented. See [private vaults](PRIVATE-VAULTS.md) for user instructions, threat model and limits.
 
 ## Project configuration
 
-Create your own Appwrite Cloud project on the Free plan. Register your exact production hostname as a Web app, plus `127.0.0.1` for local tests. Avoid wildcard origins. Use the real regional API endpoint shown by your console. Copy the endpoint, project ID and storage bucket ID to `src/managed-config.js`; those three identifiers are public. No administrator API key belongs in the client or repository. Forks must use their own project instead of consuming this demo's quota.
+Create your own Appwrite Cloud project on the Free plan. Register your exact production hostname as a Web app, plus `127.0.0.1` for local tests. Avoid wildcard origins. Use the real regional API endpoint shown by your console. Copy the endpoint, project ID and storage bucket ID to `src/managed-config.js`; those three identifiers are public. No administrator API key belongs in the client or repository. The demo no longer configures a shared project. Use only your own project.
 
 Create one storage bucket, then configure and save each section separately:
 

@@ -1,2 +1,3 @@
-// Public identifiers only. Never put API keys or SMTP credentials here.
-export const managedConfig={enabled:true,endpoint:'https://fra.cloud.appwrite.io/v1',project:'6ad4d716001e228da8e2',bucket:'6ad4da8c00369dc6f898'};
+// Public demo: guest editor only. Private vaults require your own backend.
+// See docs/SELF-HOSTING-VAULTS.md. Never put API keys or SMTP credentials here.
+export const managedConfig={demoMode:true,enabled:false,endpoint:'https://appwrite.invalid/v1',project:'',bucket:'',remoteCAS:{enabled:false,functionId:''}};

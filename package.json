@@ -1,6 +1,6 @@
 {
   "name": "atelier-design-studio",
-  "version": "0.10.0",
+  "version": "0.10.4",
   "private": true,
   "license": "MIT",
   "type": "module",
@@ -11,7 +11,7 @@
     "cloud": "node scripts/cloud.mjs",
     "test": "node --test tests/*.test.js",
     "build": "node scripts/vendor.mjs && node scripts/build.mjs",
-    "check": "node --check src/app.js && node --check src/model.js && node --check src/render.js && node --check src/storage.js && node --check src/cloud.js && node --check server/app.js && node --check server/store.js && node --check src/image-tools.js && node --check src/image-editor.js && node --check src/publishing.js && node --check src/design.js && node --check src/font-assets.js && node --check src/accounts-ui.js && node --check server/accounts.js && node --check server/google.js && node --check server/mail.js && node --check server/config.js && node --check scripts/cloud.mjs && node --check scripts/auth-check.mjs && node --check scripts/mail-verify.mjs && node --check src/editor-tools.js && node --check src/commands.js && node --check src/starter-kits.js && node --check src/pwa.js && node --check sw.js && node --check src/vault-crypto.js && node --check src/private-storage.js && node --check src/managed-account.js && node --check src/managed-ui.js && node --check src/managed-config.js",
+    "check": "node --check src/app.js && node --check src/model.js && node --check src/render.js && node --check src/storage.js && node --check src/cloud.js && node --check server/app.js && node --check server/store.js && node --check src/image-tools.js && node --check src/image-editor.js && node --check src/publishing.js && node --check src/design.js && node --check src/font-assets.js && node --check src/accounts-ui.js && node --check server/accounts.js && node --check server/google.js && node --check server/mail.js && node --check server/config.js && node --check scripts/cloud.mjs && node --check scripts/auth-check.mjs && node --check scripts/mail-verify.mjs && node --check src/editor-tools.js && node --check src/commands.js && node --check src/starter-kits.js && node --check src/pwa.js && node --check sw.js && node --check src/vault-crypto.js && node --check src/private-storage.js && node --check src/managed-account.js && node --check src/managed-ui.js && node --check src/managed-config.js && node --check src/vault-tabs.js && node --check src/vault-sync.js && node --check src/dialogs.js && node --check tests/demo-browser.js && node --check tests/vault-browser.js && node --check tests/vault-peer.js && node --check tests/vault-editor.js && node --check src/vault-idle.js && node --check src/vault-backup.js && node --check src/vault-chain.js && node --check src/vault-checkpoints.js && node --check src/vault-remote-cas.js && node --check scripts/package-release.mjs && node --check scripts/provider-check.mjs && node --check functions/remote-cas/core.mjs && node --check functions/remote-cas/main.mjs",
     "auth:check": "node scripts/auth-check.mjs",
     "mail:verify": "node scripts/mail-verify.mjs"
   },

@@ -1,0 +1,11 @@
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self'; frame-src 'self' blob:; form-action 'self'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer
+  Strict-Transport-Security: max-age=31536000
+
+/index.html
+  Cache-Control: no-cache
+/sw.js
+  Cache-Control: no-cache

@@ -3,17 +3,17 @@
 <p align="center">
 <a href="https://github.com/m4z8p6fy9m-coder/atelier-design-studio/actions/workflows/pages.yml"><img src="https://github.com/m4z8p6fy9m-coder/atelier-design-studio/actions/workflows/pages.yml/badge.svg" alt="Tests and build"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-bcecc5?style=flat-square" alt="MIT license"></a>
-<img src="https://img.shields.io/badge/version-0.10.0-c5afff?style=flat-square" alt="Version 0.10.0">
+<img src="https://img.shields.io/badge/version-0.10.4-c5afff?style=flat-square" alt="Version 0.10.4">
 <img src="https://img.shields.io/badge/browser-native_JavaScript-c5afff?style=flat-square" alt="Native JavaScript">
 </p>
 
-<p align="center"><a href="https://m4z8p6fy9m-coder.github.io/atelier-design-studio/"><strong>↗ Try Atelier live — no installation</strong></a> · <a href="https://github.com/m4z8p6fy9m-coder/atelier-design-studio/releases/tag/v0.9.0"><strong>↓ Download Atelier 0.9</strong></a> · <a href="docs/START-HERE.md">Start in two minutes</a></p>
+<p align="center"><a href="https://m4z8p6fy9m-coder.github.io/atelier-design-studio/"><strong>↗ Try Atelier live — no installation</strong></a> · <a href="https://github.com/m4z8p6fy9m-coder/atelier-design-studio/releases/tag/v0.10.4"><strong>↓ Download Atelier 0.10.4</strong></a> · <a href="docs/START-HERE.md">Start in two minutes</a></p>
 
 <h1 align="center">A creative space that belongs to you.</h1>
 <p align="center">Create social posts, posters and presentations in your browser.<br>Start without an account. Keep your designs locally. Export without watermarks.</p>
 <p align="center"><a href="#get-started"><strong>Get started</strong></a> · <a href="#inside-the-studio">Explore features</a> · <a href="docs/REFERENCE.de.md">Deutsche Anleitung</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
 
-<p align="center"><img src="docs/carousel-0.8.png" alt="Atelier 0.8 editing the four-page Creator Carousel starter kit." width="100%"><br><sub>Atelier 0.8 · Four-page Creator Carousel, fully editable.</sub></p>
+<p align="center"><img src="docs/demo-0.10.4.png" alt="Atelier 0.10.4 zeigt den Hinweis: Gastmodus-Demo, Konten deaktiviert, private Tresore zum Selbsthosting." width="100%"><br><sub>Atelier 0.10.4 · Öffentliche Demo im Gastmodus.</sub></p>
 
 ## Why Atelier?
 
@@ -21,9 +21,13 @@ Your first design should start with an idea. Atelier gives you an independent ed
 
 This is an early-stage, independent project under the MIT license. It is **not a complete Canva replacement** and is not affiliated with Canva or Adobe. The application code and bundled templates were created for this project. See the [feature inventory](docs/FEATURES.md) and [scope comparison](docs/AUDIT-CANVA.md) for current limitations.
 
-## New in 0.10: private account vaults
+## 0.10.4 — Gastmodus-Demo, private Tresore zum Selbsthosting
 
-Optional real email signup, verification codes and account-password recovery through Appwrite. A separate vault password encrypts projects, uploads, settings and versions before local storage and online backup. Guest projects stay separate. Download and restore encrypted portable backups; inspect immutable online snapshots. [Privacy, recovery and limitations](docs/PRIVATE-VAULTS.md) · [Configure your own backend](docs/APPWRITE-SETUP.md). This is an early implementation, not an independent security audit.
+**Die öffentliche Demo bietet ausschließlich den Gastmodus.** Registrierung, Anmeldung und Cloud-Synchronisation sind deaktiviert; sie verwendet kein gemeinsames Appwrite-Projekt. Gastprojekte liegen lesbar im lokalen Browser-Speicher. Website-Daten löschen bedeutet Projekte verlieren: wichtige Designs bewusst als Atelier-Dateien exportieren.
+
+**Private Tresore benötigen Selbsthosting mit deinem eigenen Appwrite-Projekt.** Die mitgelieferte Konfiguration hat `enabled:false`, `demoMode:true`, leere Projekt-/Bucket-IDs und einen nicht erreichbaren Platzhalter-Endpunkt. Die Demo-CSP erlaubt keine Appwrite-Verbindungen. [Anleitung](docs/SELF-HOSTING-VAULTS.md) · [Prüfbericht](docs/RELEASE-CHECKS-0.10.4.md).
+
+Die selbst gehostete Vault-Variante enthält Recovery-Key/DEK-Hüllen, Inaktivitätssperre, verschlüsselte portable Backups, explizite Konflikte, native Kompression und V4-Checkpoints mit erneut zustimmungspflichtiger Aufbewahrung (Standard aus). Ohne bisherigen Hash-Anker kann ein neues Gerät einen alten gültigen Online-Stand nicht erkennen. [Checkpoint-Verfahren und Grenzen](docs/CHECKPOINTS.md). Kein unabhängiges Audit und kein protokollweiter Widerruf alter Schlüssel. Kontolöschung und der kombinierte Metadatenexport aus dem vorherigen Plan sind weiterhin nicht implementiert.
 
 ## From 0.9
 
@@ -42,7 +46,7 @@ Three editable, four-page starter kits: **Creator Carousel**, **Product Story** 
 **[Open the live studio](https://m4z8p6fy9m-coder.github.io/atelier-design-studio/)** — no account, installation or Node.js required. Your designs stay in this browser. Once the app says Offline bereit, installation guidance is available from the sidebar.
 
 
-**Download:** get `Atelier-v0.9.0.zip` from [Releases](https://github.com/m4z8p6fy9m-coder/atelier-design-studio/releases/tag/v0.9.0), extract it and follow [START-HERE.md](docs/START-HERE.md). This is a portable source package, not a standalone installer; **Node.js 20.12+ is required**.
+**Download 0.10.4:** get `Atelier-v0.10.4.zip` from [Releases](https://github.com/m4z8p6fy9m-coder/atelier-design-studio/releases/tag/v0.10.4), extract it and follow [START-HERE.md](docs/START-HERE.md). This is a portable source package, not a standalone installer; **Node.js 20.12+ is required**.
 
 Or clone the repository and run from its root:
 
@@ -70,7 +74,7 @@ The current application interface and detailed guides are in German. Desktop bro
 
 Local autosave, project import/export, manual versions, folders, favorites and a recoverable trash help organize your work. Export important projects as Atelier files for backups.
 
-**Legacy optional accounts and shared projects:** with managed mode disabled, the included Node server adds email verification codes, password recovery, Google sign-in, project roles and invitations. Email delivery and Google sign-in require your own provider configuration. Hosting and providers may have costs. Start with the [server guide](docs/SERVER.md) and [account guide](docs/ACCOUNTS.md).
+**Legacy optional accounts and shared projects:** only in a deliberately self-hosted installation with `demoMode:false` and managed mode disabled, the included Node server adds email verification codes, password recovery, Google sign-in, project roles and invitations. Email delivery and Google sign-in require your own provider configuration. Hosting and providers may have costs. Start with the [server guide](docs/SERVER.md) and [account guide](docs/ACCOUNTS.md).
 
 ## Know the boundaries
 
@@ -125,3 +129,11 @@ Never commit `.env`, provider credentials or server `data/`. Read the [security 
 Create a design, export it, and show what you made. When posting publicly, you can link back to Atelier so others can try the workflow. Reproducible bug reports, accessible UI improvements, documentation and focused feature contributions are welcome — see [how to contribute](CONTRIBUTING.md).
 
 <p align="center"><img src="docs/atelier-logo.svg" alt="Atelier Design Studio" width="240"><br><sub>Independent tools. Room for your ideas.<br>MIT licensed · Built with native web APIs</sub></p>
+
+### Entwicklung und Grenzen
+
+Die bisherigen Prüfberichte [0.10.3](docs/HARDENING-0.10.3.md) und [Checkpoint-Arbeitsstand](docs/HARDENING-0.10.4.md) bleiben historische Nachweise. Der aktuelle [Release-Prüfbericht](docs/RELEASE-CHECKS-0.10.4.md) beschreibt den Gastmodus-Release und offene Prüfungen. Private Tresore werden ausschließlich mit eigenem Backend konfiguriert: [SELF-HOSTING-VAULTS.md](docs/SELF-HOSTING-VAULTS.md).
+
+### Source-ZIP und Prüfsumme
+
+Das [0.10.4-Release](https://github.com/m4z8p6fy9m-coder/atelier-design-studio/releases/tag/v0.10.4) enthält `Atelier-v0.10.4.zip` und `Atelier-v0.10.4.sha256`. Nach dem Download SHA-256 gegen die separate Datei vergleichen, unter PowerShell etwa `Get-FileHash -Algorithm SHA256 .\Atelier-v0.10.4.zip`. Lokal reproduzierbarer Paketbefehl: `node scripts/package-release.mjs`; erzeugt beide Dateien in `release/` aus einer öffentlichen Whitelist, ohne `.env`, Nutzerdaten oder installierte Pakete.
