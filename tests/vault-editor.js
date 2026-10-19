@@ -1,0 +1,27 @@
+import {managedConfig} from '../src/managed-config.js';
+import {createDescriptor} from '../src/vault-crypto.js';
+import {newDoc,txt} from '../src/model.js';
+import * as vault from '../src/private-storage.js';
+import * as db from '../src/storage.js';
+// Synthetic self-hosted fixture only; the production demo stays disabled.
+managedConfig.demoMode=false;managedConfig.enabled=true;
+const {managed}=await import('../src/managed-account.js');
+const owner='editor-'+crypto.randomUUID(),password='synthetic real editor regression password',made=await createDescriptor(owner,password),project={...newDoc(),id:'editor-project-'+crypto.randomUUID(),title:'SYNTHETIC PRIVATE TITLE'};
+project.pages[0].elements=[txt('SYNTHETIC PRIVATE CONTENT',20,20,32)];
+managed.account.get=async()=>({$id:owner,name:'Synthetic test user',email:'synthetic@example.test',emailVerification:true});
+await vault.patchVaultMeta(owner,{descriptor:made.descriptor});await managed.unlockOffline(owner,password);localStorage.setItem('atelier-vault-owner',owner);await db.put('projects',project);
+// The editor fixture must test current source, never a previously cached shell.
+Object.defineProperty(navigator,'serviceWorker',{configurable:true,value:{register:()=>Promise.reject(Error('Service worker disabled in isolated editor fixture')),ready:new Promise(()=>{})}});
+await import('../src/app.js');
+async function until(check){const deadline=Date.now()+7000;while(!check()){if(Date.now()>deadline)throw Error('Editor-Testschritt nicht bereit');await new Promise(r=>setTimeout(r,20))}}
+await until(()=>document.querySelector('[data-open]'));
+async function unlockUI(){document.querySelector('[data-action="cloud"]').click();await until(()=>document.querySelector('[data-action="vault:offline"]'));document.querySelector('[data-action="vault:offline"]').click();await until(()=>document.querySelector('#vaultSecret'));document.querySelector('#vaultSecret').value=password;document.querySelector('#vaultForm').requestSubmit();await until(()=>document.querySelector('[data-action="vault:backup"]'));document.querySelector('[data-action="close"]').click();await until(()=>!document.querySelector('#modal').open)}
+window.addEventListener('message',async event=>{if(event.origin!==location.origin||event.source!==parent||event.data?.type!=='editor-test')return;const {id,action}=event.data;try{let result;if(action==='edit'){document.querySelector('[data-open]').click();await until(()=>document.querySelector('#title'));document.querySelector('#title').value='SYNTHETIC PENDING EDIT';document.querySelector('#title').dispatchEvent(new Event('input',{bubbles:true}));result=true}
+ if(action==='state'){await until(()=>!managed.transitioning);result={key:!!managed.key,privateDOM:document.body.textContent.includes('SYNTHETIC PRIVATE'),presentation:!!document.querySelector('#presentation')}}
+ if(action==='verify-save'){await until(()=>!managed.transitioning);await unlockUI();result=(await db.get('projects',project.id)).title}
+ if(action==='conflict-export'){await until(()=>!managed.transitioning);await unlockUI();document.querySelector('[data-open]').click();await until(()=>document.querySelector('#title'));const peer=await import('../src/private-storage.js?other-editor');peer.useVault(owner,managed.key);const current=await peer.privateGet('projects',project.id);await peer.privateWrite('projects',{...current,title:'NEWER SAVED ELSEWHERE'});document.querySelector('#title').value='LOCAL UNSAVED EMERGENCY DRAFT';document.querySelector('#title').dispatchEvent(new Event('input',{bubbles:true}));document.querySelector('[data-action="home"]').click();await until(()=>document.querySelector('#saved')?.textContent==='Speichern fehlgeschlagen'||!document.querySelector('#title'));const stillEditor=document.querySelector('#title')?.value==='LOCAL UNSAVED EMERGENCY DRAFT';if(!stillEditor)throw Error('Navigation hat den ungespeicherten Entwurf verdrängt');let captured;const click=HTMLAnchorElement.prototype.click,createURL=URL.createObjectURL,blobs=new Map();URL.createObjectURL=function(blob){const url=createURL.call(URL,blob);blobs.set(url,blob);return url};HTMLAnchorElement.prototype.click=function(){if(this.download.endsWith('.atelier.json')){captured=blobs.get(this.href).text().then(JSON.parse);return}return click.call(this)};try{document.querySelector('[data-action="export"]').click();await until(()=>document.querySelector('#exportType'));document.querySelector('#exportType').value='json';document.querySelector('#doExport').click();await until(()=>!!captured);const exported=await captured;result={stillEditor,exportedTitle:exported.title,projectId:exported.id,storedTitle:(await peer.privateGet('projects',project.id)).title}}finally{HTMLAnchorElement.prototype.click=click;URL.createObjectURL=createURL;peer.lockVault();if(document.querySelector('#modal').open)document.querySelector('#modal').close();await managed.requestLock()}}
+ if(action==='present'){
+document.querySelector('[data-open]').click();await until(()=>document.querySelector('[data-action="present"]'));document.querySelector('[data-action="present"]').click();await until(()=>document.querySelector('#presentation'));result=true}
+ parent.postMessage({type:'vault-result',id,result},location.origin)}catch(error){parent.postMessage({type:'vault-result',id,error:error.message},location.origin)}});
+parent.postMessage({type:'peer-ready',peer:'editor'},location.origin);
+

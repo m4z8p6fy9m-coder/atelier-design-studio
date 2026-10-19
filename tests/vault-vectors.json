@@ -1,0 +1,53 @@
+{
+  "notice": "PUBLIC TEST VECTORS ONLY. Generated with Node/OpenSSL createCipheriv, pbkdf2Sync and zlib, not production seal.",
+  "rawKeyHex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+  "password": "Atelier KAT Passwort 2026!",
+  "saltBase64": "ABEiM0RVZneImaq7zN3u/w==",
+  "derivedHex": "03e8e72a1dadd5b5b394dd9946a5db9314562fcb22260cdfb66d820dc34f4052",
+  "context": "atelier-record:[\"kat-owner\",\"settings\",\"one\"]",
+  "value": {
+    "id": "one",
+    "text": "Hallo Welt ä"
+  },
+  "v1": {
+    "v": 1,
+    "iv": "EBESExQVFhcYGRob",
+    "data": "BtzxcmvzGNykECoxLQ0MK6NydCxTozvdiNm1AjIgdBj0yypu9yu8p57xBZfnVxXeLOKf"
+  },
+  "large": {
+    "id": "large",
+    "text": "Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz Lernnotiz "
+  },
+  "v2": {
+    "v": 2,
+    "codec": "gzip",
+    "plainBytes": 2024,
+    "iv": "EBESExQVFhcYGRob",
+    "data": "YnWQFknJOrPKf6NLxTU44YWaByJRjQJjttOrynYF5omioHrJPm1BJtJkijQHKlVCsBAWpcvgzcfoR3CE890vzFAQOCNJedS5+db1BIOQkVL4Hlrq0Q=="
+  },
+  "descriptor": {
+    "format": "atelier-vault-2",
+    "owner": "kat-owner",
+    "id": "00000000-0000-4000-8000-000000000001",
+    "salt": "ABEiM0RVZneImaq7zN3u/w==",
+    "kdf": "PBKDF2-SHA256-600000",
+    "passwordEpoch": "00000000-0000-4000-8000-000000000003",
+    "recoveryEpoch": "00000000-0000-4000-8000-000000000004",
+    "check": {
+      "v": 1,
+      "iv": "ICEiIyQlJicoKSor",
+      "data": "qRjJG06ibnxvGT+cAckRyQv4uhWBNJ7EcmRH"
+    },
+    "passwordWrap": {
+      "v": 1,
+      "iv": "MDEyMzQ1Njc4OTo7",
+      "data": "ImEI/TE1Coxjf5w+oAOLO7Gecl9p0DJyjd8KOji5KvgORohu+LRmCTkUB1yIQ2zUY4jNHdxP/SETtKblAXnF96AWQXQV+w=="
+    },
+    "recoveryWrap": {
+      "v": 1,
+      "iv": "QEFCQ0RFRkdISUpL",
+      "data": "XTZJSDQMKs19dPfJ37+QaUYkecHPh66McMVz8zZ78WXAhIvIaobrsw+i0Cs2kw9SJQks0MAb0zyr5zqeAglfnHGY3rb2Bg=="
+    }
+  },
+  "recoveryKey": "AAAA-AAAA-AAAA-AAAA-AAAA-AAAA-AAAA-AAAA-AAAA-AAAA-AAAA-AAAA-AAAA"
+}
