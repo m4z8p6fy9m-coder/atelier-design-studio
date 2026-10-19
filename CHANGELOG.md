@@ -1,5 +1,55 @@
 # Änderungen
 
+## 0.10.4 — 2026-10-19 (Gastmodus-Demo)
+
+- Öffentliche Demo ausschließlich im Gastmodus: Appwrite deaktiviert, Betreiber-Projekt-/Bucket-IDs entfernt, kein automatischer Wechsel zum Legacy-Kontendienst.
+- Konto-/Registrierungsaktionen zeigen einen deutschen Gastmodus-Hinweis; der konfigurierte SDK-Client weist Netzaufrufe bei abgeschaltetem Kontendienst ab. Demo-CSP und Header-Beispiele erlauben nur Verbindungen derselben Origin.
+- Private Tresore ausschließlich zum bewussten Selbsthosting mit eigenem Appwrite-Projekt, dokumentiert in SELF-HOSTING-VAULTS.md. Vorhandene lokale/Cloud-Vaults werden nicht gelöscht.
+- Enthält den unten dokumentierten Checkpoint-Arbeitsstand mit erneut zustimmungspflichtiger Aufbewahrung (Standard aus), Migration und Tests.
+- Versions-/Cache-Abgleich, Source-ZIP mit separater SHA-256-Datei und aktualisierte Download-/Betriebsdokumentation. Prüfergebnisse und ausstehende Schritte: docs/RELEASE-CHECKS-0.10.4.md.
+- Kontolöschung und kombinierter Metadatenexport bleiben offen. Kein unabhängiges Sicherheitsreview, keine Aussage zu juristischer Konformität.
+
+
+## Unveröffentlicht – Stufe 0.10.4, Aufgabe 1 – 2026-10-19
+
+- Vollständiger verschlüsselter V4-Checkpoint mit bisherigem Head und transitiver Hash-Liste. Bestehende Vaults werden additiv ergänzt; Projekte, Schlüsselhüllen und portable Formate bleiben unverändert.
+- Aufbewahrung verlangt erneute Zustimmung; vorherige Aktivierung ohne Checkpoint-Protokollversion übernimmt keine Löschfreigabe. Standard bleibt aus.
+- Löschungen erst nach Rücklesen/Validieren und Head-Abgleich, nur für abgedeckte alte Dateien; Unterbrechungen sind ohne neuen Snapshot wiederholbar. Aktueller Head, eigener Anker und zehn neueste Dateien bleiben geschützt.
+- Neue Tests für Pruning, alte/neue Geräte, wiederholte Checkpoints, Manipulation, Rollback, Abbruch, Migration und CAS-Doubles; Browser-Suite erweitert. [Prüfbericht und offene Risiken](docs/HARDENING-0.10.4.md).
+- Bewusst begrenzter Lieferumfang gemäß Aufgabenstellung: Aufgaben 2 (Konto-/Cloud-Löschung und Export) und 3 (Release-Vorbereitung) nur geplant. Paketversion bleibt 0.10.3, neuer Shell-Cache r4. Kein 0.10.4-Release, kein neuer ZIP-/Prüfsummen- oder Rechtsdokument-Stand.
+
+
+## 0.10.3 — 2026-10-19 (lokaler Kandidat)
+
+- Descriptor-Backup, unveränderliche Remote-Kopie, ausdrücklicher Abgleich und Offline-Wiederherstellung ohne lokalen Descriptor.
+- Passwort-/Recovery-Hüllenwechsel mit Epochenbindung und Tests gegen alte Hüllen im aktuellen Descriptor. Historische DEKs bleiben nutzbar.
+- Hash-Verkettung neuer Snapshots und lokaler Rollback-Anker; Pruning neuer Ketten vorerst ausgesetzt.
+- Transaktionaler Appwrite-CAS-Prototyp und persistente idempotente Upload-Outbox, standardmäßig ausgeschaltet.
+- Streng gesperrtes Zwei-Nutzer-Provider-Testskript mit geheimnisfreiem Markdown-Bericht; echter Providerlauf mangels Testumgebung nicht ausgeführt.
+- Native Kompression vor AES-GCM und gemessene Speicheranzeige; projektweites Providerlimit unbekannt. Chunking/Deduplizierung nur als Entwurf.
+- Externe Format-Spezifikation, feste öffentliche Testvektoren und deterministischer Backup-Import-Fuzz-Test.
+- Syntax/Build bestanden, 211 Node-Tests, 17 Vault-Browserprüfungen und 16 bestehende Browserprüfungen bestanden. Keine neuen Abhängigkeiten; lokaler Kandidat, nicht veröffentlicht.
+- Einzelheiten und Prüfstand: docs/HARDENING-0.10.3.md.
+
+
+## 0.10.2 — 2026-10-18 (lokaler Kandidat)
+
+- B: accountbezogene Inaktivitätssperre (Standard 15 Minuten), BroadcastChannel-Abgleich, Meta-CSP und Hosting-Header-Beispiele.
+- A: zufälliger DEK, Passwort-/Recovery-Hüllen, bestätigter Base32-Download, Passwortwechsel und additive Legacy-Migration.
+- Schlüsselrevisionen bleiben erhalten; alte Passwort-Hüllen werden nicht widerrufen.
+- 178 Node-Tests, 15 Vault-Browserprüfungen und 16 bestehende Browserprüfungen bestanden; Syntax und Build bestanden.
+- Prüfungen und verbleibende Grenzen: docs/HARDENING-0.10.2.md. Noch unveröffentlicht.
+
+## 0.10.1 — Vault hardening candidate (unreleased)
+
+- Reproduce and fix late unlock, descriptor loss on restore, and redundant dirty writes.
+- Origin-scoped tab revocation, guarded queued saves, account/session checks and bounded lock flush.
+- Atomic restore with generation checks and a recoverable encrypted local previous version.
+- Snapshot parent graph, explicit branch selection, fewer full uploads and opt-in conservative retention.
+- Named dialogs, erased closed inputs, focus restoration and associated account-form notices.
+- New security/browser/release regression checks; no added dependencies.
+- See docs/HARDENING-0.10.1.md for validation and remaining provider/race limits.
+
 ## 0.10.0 — Private account vaults
 
 - Optional Appwrite email signup, verification OTP and account-password recovery.

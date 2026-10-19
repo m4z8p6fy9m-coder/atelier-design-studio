@@ -8,3 +8,6 @@ dist/
 coverage/
 data/
 *.tmp
+provider-check*.local.md
+
+release/
